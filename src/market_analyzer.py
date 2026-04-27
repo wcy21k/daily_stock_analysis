@@ -14,6 +14,7 @@ import logging
 import time
 from dataclasses import dataclass, field
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from typing import Optional, Dict, Any, List
 
 import pandas as pd
@@ -864,7 +865,7 @@ Market conditions can change quickly. The data above is for reference only and d
 {strategy_summary}
 
 ---
-*复盘时间: {datetime.now().strftime('%H:%M')}*
+*复盘时间: {datetime.now(ZoneInfo('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M')}*
 """
     
     def run_daily_review(self) -> str:
